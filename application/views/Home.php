@@ -64,7 +64,6 @@
     <div class="container"  >
         <div class="row text-center">
             <div  class="col-md-12" > 
-                <h1 style="color: white"> Curl Me Crazy Hair Salon </h1>
                 <br>
                 <p>$$$ worth of materials on hand: <b>${worthOfMaterialsAvailable}</b></p>
                 <p>$$$ worth of stock for sale: <b>${worthOfProductsStocked}</b></p>
