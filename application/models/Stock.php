@@ -37,8 +37,7 @@ class Stock extends CI_Model{
                 array('code' => 'buzzcut', 
                       'description' => 'a haircut in which all the hair is cut very close to the scalp.', 
                       'sellingPrice' => '15.99',
-                      'quantity' => '9')
-                
+                      'quantity' => '9')          
 	);
 
 	// Constructor
@@ -62,6 +61,7 @@ class Stock extends CI_Model{
 	// retrieve all of the quotes
 	public function all()
 	{
-		return $this->data;
+            $query = $this->db->get('stock');  
+	    return $query->result_array();
 	}
 }

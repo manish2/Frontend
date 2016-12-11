@@ -26,14 +26,14 @@ class Home extends Application{
         $supplies = $this->Supplies->all();
         $totalOfSuppliesAvailable = 0;
         $suppliesCount = 0;
-         
+        $count = 0; 
         foreach ($supplies as $supply)
         {
-            //*NEED TO CHANGE THIS - WILL NOT WORK 
-            $totalOfSuppliesAvailable += (($supply['receivingCost'] / $supply['receivingUnit']) * $supply['quantity']);
-            
-            if ($supply['quantity'] > 0) {
-                $suppliesCount++;
+            foreach($supply as $item) { 
+                if($item->quantity > 0) { 
+                    $suppliesCount++; 
+                }
+                $totalOfSuppliesAvailable += (($item->receivingCost/$item->receivingUnit))*$item->quantity; 
             } 
         }
         

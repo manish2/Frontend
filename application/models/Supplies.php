@@ -22,9 +22,7 @@ class Supplies extends CI_Model {
 	{
 		parent::__construct();
                 $this->load->library(['curl', 'format', 'rest']);
-	}
-
-	 
+	} 
         function getPorts()
         {
                 $this->rest->initialize(array('server' => REST_SERVER));
