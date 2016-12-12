@@ -29,8 +29,7 @@ class Home extends Application{
         $count = 0; 
         foreach ($supplies as $supply) 
         { 
-            foreach($supply as $item) { 
-                
+            foreach($supply as $item) {    
                 if($item->quantity > 0) { 
                     $suppliesCount++; 
                 }
