@@ -93,7 +93,7 @@ class Recipe extends CI_Model{
 	public function all()
 	{
             $this->db->distinct(); 
-            $this->db->get('ingredients'); 
-            return $this->data;
+            $query = $this->db->get('ingredients'); 
+            return $query->result_array();
 	}
 }
