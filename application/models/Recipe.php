@@ -92,8 +92,25 @@ class Recipe extends CI_Model{
 	// retrieve all of the quotes
 	public function all()
 	{
-            $this->db->distinct(); 
-            $query = $this->db->get('ingredients'); 
-            return $query->result_array();
+            $query = $this->db->query("select distinct code, description from ingredients");
+            $recipes = array();
+            foreach ($query->result_array() as $recipe) {
+                $code = $recipe['code'];
+                $newQuery = $this->db->query("select name, amount from ingredients where code = '$code'");
+                $ingredients = array();
+                $count = 1;
+                foreach ($newQuery->result_array() as $ingredient) {
+                    $ingredients[] = array ($count++ => array('name' => $ingredient['name'],
+                                                          'amount' => $ingredient['amount']));
+                }
+                $recipes[] = array ('code' => $recipe['code'], 'description' => $recipe['description'], 'ingredients' => $ingredients);
+                $count = 1;
+            }
+            if ($query->num_rows() > 0)
+            {
+                return $recipes;
+            } else {
+                throw new Exception("No records found");
+            }
 	}
 }

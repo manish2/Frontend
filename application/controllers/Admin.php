@@ -19,7 +19,25 @@ class Admin extends Application
 	 */
 	public function index()
 	{
-            $this->load->view('AdminPage');
+            $source = $this->Supplies->all();
+            $supplies = array();
+                 
+            foreach ($source as $items)
+            {
+                foreach($items as $item) { 
+                    $supplies[] = array ('code' => $item->code, 'description' => $item->description, 'receivingUnit' => $item->receivingUnit,
+                        'receivingCost' => $item->receivingCost, 'stockingUnit' => $item->stockingUnit, 'quantity' => $item->quantity);
+                }
+            }
+            $recipes = $this->Recipe->all();
+            $stock = $this->Stock->all();
+            
+            $this->data['supplies'] = $supplies; 
+            $this->data['recipes'] = $recipes; 
+            $this->data['stock'] = $stock; 
+            
+            $this->data['pagebody'] = 'AdminPage';
+            $this->render();
 	}
 
 }

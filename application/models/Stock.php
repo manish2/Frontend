@@ -42,4 +42,7 @@ class Stock extends CI_Model{
                 throw new Exception("No records found");
             }
 	}
+        public function add($code,$description,$sellingprice,$quantity) { 
+            
+        }
 }

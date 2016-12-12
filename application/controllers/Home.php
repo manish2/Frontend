@@ -28,9 +28,7 @@ class Home extends Application{
         $suppliesCount = 0;
         $count = 0; 
         foreach ($supplies as $supply) 
-        {
-        
-            print_r($supplies); 
+        { 
             foreach($supply as $item) { 
                 
                 if($item->quantity > 0) { 
