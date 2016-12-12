@@ -22,10 +22,12 @@ class Recieving extends Application
                 $source = $this->Supplies->all();
                 $supplies = array();
                  
-                foreach ($source as $item)
+                foreach ($source as $items)
 		{
-			$supplies[] = array ('code' => $item['code'], 'description' => $item['description'], 'receivingUnit' => $item['receivingUnit'],
-                            'receivingCost' => $item['receivingCost'], 'stockingUnit' => $item['stockingUnit'], 'quantity' => $item['quantity']);
+                    foreach($items as $item) { 
+			$supplies[] = array ('code' => $item->code, 'description' => $item->description, 'receivingUnit' => $item->receivingUnit,
+                            'receivingCost' => $item->receivingCost, 'stockingUnit' => $item->stockingUnit, 'quantity' => $item->quantity);
+                    }
 		}
 		$this->data['supplies'] = $supplies;
                 $this->data['pagebody'] = 'RecievingPage';
