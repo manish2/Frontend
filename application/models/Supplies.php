@@ -33,7 +33,7 @@ class Supplies extends CI_Model {
 
         function rules() {
             $config = [
-                ['field'=>'code', 'label'=>'name', 'rules'=> 'required|max_length[256]'],
+                ['field'=>'id', 'label'=>'name', 'rules'=> 'required|max_length[256]'],
                 ['field'=>'description', 'label'=>'description', 'rules'=> 'required|max_length[256]'],
                 ['field'=>'receivingUnit', 'label'=>'receiving unit', 'rules'=> 'required|integer'],
                 ['field'=>'receivingCost', 'label'=>'receiving cost', 'rules'=> 'required|decimal'],
@@ -49,4 +49,5 @@ class Supplies extends CI_Model {
                 $this->rest->option(CURLOPT_PORT, REST_PORT);
                 return $this->rest->get('/maintenance');
         }
+        
 }
