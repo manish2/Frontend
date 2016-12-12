@@ -49,19 +49,24 @@ class Stock extends CI_Model{
 	// retrieve a single quote
 	public function get($which)
 	{
-		// iterate over the data until we find the one we want
-		foreach ($this->data as $record) {
-			if ($record['code'] == $which) {
-				return $record;
-                        }
-                }
-		return null;
+            $query = $this->db->query("select code,description,sellingPrice,quantity from stock WHERE code = '$which' LIMIT 1");
+            if ($query->num_rows() > 0)
+            {
+                return $query->result_array();
+            } else {
+                throw new Exception("No records found");
+            }
 	}
 
 	// retrieve all of the quotes
 	public function all()
 	{
-            $query = $this->db->get('stock');  
-	    return $query->result_array();
+            $query = $this->db->query("select code,description,sellingPrice,quantity from stock");
+            if ($query->num_rows() > 0)
+            {
+                return $query->result_array();
+            } else {
+                throw new Exception("No records found");
+            }
 	}
 }
