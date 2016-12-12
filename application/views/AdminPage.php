@@ -1,85 +1,84 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <![endif]-->
-    <!--REQUIRED STYLE SHEETS-->
-    <!-- BOOTSTRAP CORE STYLE CSS -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css" />
-    <!-- FONTAWESOME STYLE CSS -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css"/>
-    <!--ANIMATED FONTAWESOME STYLE CSS -->
-    <link rel="stylesheet" type="text/css"  href="/assets/css/font-awesome-animation.css"/>
-     <!--PRETTYPHOTO MAIN STYLE -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/prettyPhoto.css"/>
-       <!-- CUSTOM STYLE CSS -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
-    <!-- GOOGLE FONT -->
-    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans' />
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-         <!-- NAV SECTION -->
-         <div class="navbar navbar-inverse navbar-fixed-top">
-       
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+ <div class="row">
+    <div class="span8 offset1">
+        <h2>Stock</h2>
+        <table id='stockTable'>
+            <tr>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Selling Price</th>
+                <th>Quantity</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
             
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">HOME</a></li>
-                    <li><a href="admin">ADMINISTRATOR</a></li>
-                     <li><a href="recieving">RECIEVING</a></li>
-                       <li><a href="production">PRODUCTION</a></li>
-                    <li><a href="sales">SALES</a></li>
-                </ul>
-            </div>
-           
-        </div>
+            {stock}
+            <tr>
+                <td>{code}</td>
+                <td>{description}</td>
+                <td>{sellingPrice}</td>
+                <td>{quantity}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {/stock}
+            <a>Add</a>
+        </table>
+        <h2>Recipes</h2>
+        <table id ='recipesTable'>
+            <tr>
+                <th>Name</th>
+                <th>Ingredients</th>
+            </tr>
+            {recipes}
+            <tr>
+                <td>{code}</td>
+                <td>
+                    <table>
+                        <tr>
+                            <th>Ingredient Name</th>
+                            <th>Amount</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>    
+                        {ingredients}
+                        <tr>
+                            <td>{name}</td>
+                            <td>{amount}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        {/ingredients}
+                        <a>Add</a>
+                    </table>
+                </td>
+            </tr>
+            {/recipes}
+        </table>
+        <h2>Supplies</h2>
+        <table id = 'suppliesTable'>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Receiving Unit</th>
+                <th>Receiving Cost</th>
+                <th>Stocking Unit</th>
+                <th>Quantity</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            {supplies}
+            <tr>
+                <td>{code}</td>
+                <td>{description}</td>
+                <td>{receivingUnit}</td>
+                <td>{receivingCost}</td>
+                <td>{stockingUnit}</td>
+                <td>{quantity}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {/supplies}
+            <a>Add</a>
+        </table>
     </div>
-     <!--END NAV SECTION -->
-    
-    <!--HOME SECTION-->
-    <div id="home-sec">
-
-   
-    <div class="container"  >
-        <div class="row text-center">
-            <div  class="col-md-12" >
-                <span class="head-main" >Go Relax Template</span>
-                <h2 class="head-sub-main">Download And Get Relaxed</h2>        
-                 
-            </div>
-            <div class="col-md-12 col-sm-12">
-               
-                <a  href="#services-sec">
-                 <i class="fa fa-crosshairs fa-5x go-marg"></i> 
-                    </a>
-            </div>
-        </div>
-    </div>
-         </div>
-</html> 
-    
-    <!--END HOME SECTION--> 
+</div>
